@@ -1,0 +1,136 @@
+@import '../../../assets/styles/variables.less';
+
+.antui-transfer-tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  &-list {
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    display: inline-block;
+    height: 300px;
+    padding-top: 34px;
+    position: relative;
+    vertical-align: middle;
+    width: 200px;
+
+    &-header {
+      background: #f9f9f9;
+      border-bottom: 2px solid tint(@primary-color);
+      border-radius: 4px 4px 0 0;
+      color: rgba(0, 0, 0, 0.65);
+      height: 34px;
+      left: 0;
+      overflow: hidden;
+      padding: 6px 12px;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      &.tree-title { color: #333; }
+
+      &-title {
+        position: absolute;
+        right: 12px;
+
+        a {
+          color: @primary-color;
+
+          &:hover { color: tint(@primary-color); }
+        }
+      }
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+
+      &-search-wrapper {
+        flex: none;
+        padding: 4px;
+
+        .antui-transfer-tree-list-search-action {
+          bottom: 4px;
+          color: rgba(0, 0, 0, 0.25);
+          line-height: 32px;
+          position: absolute;
+          right: 4px;
+          text-align: center;
+          top: 4px;
+          width: 28px;
+        }
+      }
+
+      &-content {
+        flex: auto;
+        height: 100%;
+        overflow: auto;
+        position: relative;
+
+        &.tree-content {
+          padding: 0 4px;
+
+          .tree-filter-result + .ant-tree { display: none; }
+        }
+
+        .ant-tree li .ant-tree-node-content-wrapper { width: ~'calc(100% - 24px)'; }
+
+        .ant-tree li > span { vertical-align: middle; }
+
+        &-not-found {
+          color: #ddd;
+          left: 0;
+          margin: auto;
+          position: absolute;
+          right: 0;
+          text-align: center;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        .list-comp-item {
+          padding: 7px 16px;
+          position: relative;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: #e6f7ff;
+            cursor: pointer;
+          }
+
+          .list-comp-clear-item {
+            color: #666;
+            display: none;
+            float: right;
+            font-weight: bold;
+            position: absolute;
+            right: 7px;
+            top: 7px;
+
+            &:hover { color: @error-color; }
+          }
+
+          .list-comp-item-body {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          &:hover .list-comp-clear-item { display: block; }
+        }
+      }
+    }
+  }
+
+  &-operation {
+    display: inline-block;
+    margin: 0 8px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+}

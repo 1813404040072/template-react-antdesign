@@ -1,0 +1,30 @@
+// Page style
+@import '../../../assets/styles/variables.less';
+.pagedashboardhome-page {
+    .ant-upload{
+        &-picture-card-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        &.ant-upload-select-picture-card{
+            display: table;
+            width: auto;
+            height: auto;
+            min-width: 180px;
+            min-height: 180px;
+        }
+    }
+    .infinite-container {
+        height: 200px;
+        overflow: auto;
+        position: relative;
+        margin-bottom: 30px;
+    }
+    .loading-container {
+        position: absolute;
+        bottom: 100px;
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,100 @@
+@import '../../../assets/styles/variables.less';
+
+@toolbar-box-prefix-cls: antui-toolbar-box;
+@toolbar-height: 48px;
+// Toolbar styles
+// -----------------------------
+.@{toolbar-box-prefix-cls} {
+  border-bottom: 1px solid @border-color-base;
+  font-size: 12px;
+  line-height: 1;
+  margin-bottom: 0;
+  min-height: @toolbar-height;
+  overflow: hidden;
+  position: relative;
+
+  .top-panel {
+    padding-top: 12px;
+    padding-bottom: 20px;
+  }
+
+  .left-btn-div {
+    display: inline-block;
+    height: @toolbar-height;
+    margin-left: 20px;
+    padding-top: 8px;
+    position: relative;
+    vertical-align: middle;
+    z-index: 1;
+
+    button { margin-right: 0; }
+  }
+
+  .toolbar-right,
+  .pulldown-handle-small {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+  }
+
+  .pulldown-handle-small { display: none; }
+
+  @media (max-width: 576px) {
+    .toolbar-right,
+    .pulldown-handle { display: none; }
+
+    .pulldown-handle-small { display: block; }
+  }
+
+  .toolbar-right-out { transform: translateX(120%); }
+
+  .pulldown-panel {
+    background: #fff;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    // z-index: 7;
+    &.open { max-height: 400px; }
+
+    .pulldown-handle {
+      background: #fff;
+      border: 1px solid @border-color-base;
+      border-bottom: 0;
+      border-radius: 4px 4px 0 0;
+      bottom: 0;
+      box-shadow: 0 8px 18px -3px #9e9e9e;
+      height: 10px;
+      left: 0;
+      line-height: 10px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      transition: all 0.2s;
+      width: 50px;
+      z-index: 2;
+
+      i {
+        display: flex;
+        justify-content: center;
+        transform: scale(0.7);
+      }
+
+      &:hover {
+        height: 25px;
+        width: 60px;
+      }
+    }
+
+    .pulldown-body {
+      background: #f9f9f9;
+      border-top: 1px solid @border-color-base;
+      margin-top: 0;
+      overflow: hidden;
+      padding: 10px;
+      position: relative;
+    }
+  }
+}
